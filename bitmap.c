@@ -57,26 +57,50 @@ void stepOne(){
     // Convert "00000101" from binary to decimal in your head
     // assign "byte" to that value
     printf("Trying to set bitmap to 00000101...\n");
-    byte = 101; // THIS IS WRONG, CONVERT TO DEC FIRST!!!
+    /* BOTH OF THESE LINES ARE EQIVALENT */
+    byte = 0b101;
+    byte = 5;
+
     printBits(byte);
     printf("\n");
 
     // Use bitwise operators to set bit index 5 to 1
     // Should print: 00100101
     printf("Trying to set bit in index 5...\n");
-    // YOUR CODE HERE
+    /* BOTH OF THESE LINES ARE EQIVALENT */
+    byte = byte | (1<<5);
+    byte = byte | 0b100000;
     printBits(byte);
     printf("\n");
 
     printf("Testing bits 2 and 6...\n");
-    // Check if the 2nd bit is set, if so print "bit 2 is set"
-    // YOUR CODE HERE
+    // Check if the index 2 bit is set, if so print "bit 2 is set"
+    char test_mask = 0;
+    /* BOTH OF THESE LINES ARE EQIVALENT */
+    test_mask = 0b100;
+    test_mask = 1 << 2;
+    if(byte & test_mask) {
+        printf("bit 2 is set\n");
+    }
+    else {
+        printf("bit 2 is not set\n");
+    }
 
     // Check if the 6th bit is set, if not set print "bit 6 is not set"
-    // YOUR CODE HERE
+    /* BOTH OF THESE LINES ARE EQIVALENT */
+    test_mask = 0b1000000;
+    test_mask = 64;
+    if((byte & test_mask) == test_mask) {
+        // If you want to test for equality you need parenthesis to
+        // ensure the correct order of operations!
+        printf("bit 6 is set\n");
+    }
+    else {
+        printf("bit 6 is not set\n");
+    }
 
     // Print as decimal
-    // YOUR CODE HERE
+    printf("%d\n", (int) byte);
 
     // Print as binary
     printf("Bin: ");

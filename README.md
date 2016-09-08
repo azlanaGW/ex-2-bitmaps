@@ -4,11 +4,13 @@ The instructions for this assignment are here: [http://faculty.cs.gwu.edu/~timwo
 
 Step 0 and Step 1 are due Tuesday September 6th at 11:59PM.
 
+Step 2 is due Tuesday September 13th at 11:59PM.
+
 ## Compiling and Running Your Code
 As noted in the instructions, this code requires the C math library to compile. To build and run your code use:
 
 ```
-  gcc -lm bitmap.c -o bits
+  gcc bitmap.c -lm -o bits
   ./bits
 ```
 
@@ -25,7 +27,7 @@ To submit your code you will need to...
 2) Add and commit your files locally--_the name of your notes image will probably be different from mine_:
 
 ```
-  git add bitmap.c 
+  git add bitmap.c
   git add mynotes.jpg
   git commit -m "Working step 1"
 ```
